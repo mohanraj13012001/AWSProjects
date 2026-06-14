@@ -32,4 +32,13 @@ public class S3Controller {
         return ResponseEntity.ok(bytes);
     }
 
+    @DeleteMapping("/delete/{fileName}")
+    public ResponseEntity<String> deleteFile(
+            @PathVariable String fileName) {
+
+        String response = s3Service.deleteFile(fileName);
+
+        return ResponseEntity.ok(response);
+    }
+
 }
